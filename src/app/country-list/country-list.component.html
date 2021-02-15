@@ -1,0 +1,16 @@
+<div class="card-data" >
+
+    
+
+    <div class="card-data__item" *ngFor="let country of countryList, let i = index">
+        <img src="{{country.flag}}" class="card-data__flag" width="30px" />
+
+        <span class="card-data__title">{{country.name}}</span>
+        <span class="card-data__sub-title">{{country.capital}}</span>
+        <!--
+        {{country.population}} <br/>
+        {{country.region}} <br/>
+        {{country.timezones[0]}} <br/>
+        {{country.alpha3Code}} <br/>-->
+    </div>
+</div>

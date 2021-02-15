@@ -1,0 +1,32 @@
+$gray_color: rgba(0, 0, 0, 0.125);
+
+.card-data {
+    margin: 20px 0;
+    &__item {
+        display: block;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid $gray_color;
+        border-radius: 5px;
+        box-shadow: 1px 0px 2px $gray_color;
+    }
+
+    &__flag{
+        position: absolute;
+        width: 35px;
+        margin-right: 10px;
+        display: inline;
+    }
+
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 45px;
+    }
+
+    &__sub-title {
+        font-size: 16px;
+        margin-left: 10px;
+        color: #aaa;
+    }
+}
