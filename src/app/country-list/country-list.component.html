@@ -1,16 +1,43 @@
-<div class="card-data" >
-
-    
-
-    <div class="card-data__item" *ngFor="let country of countryList, let i = index">
-        <img src="{{country.flag}}" class="card-data__flag" width="30px" />
-
-        <span class="card-data__title">{{country.name}}</span>
-        <span class="card-data__sub-title">{{country.capital}}</span>
+<mat-toolbar color="primary" class="main-header mat-elevation-z4" [class.hidden]="toggleSearch">
+    <mat-toolbar-row style="padding: 0 5px;">
+        <div style="padding:8px 0 0 10px; flex:1;">
+        <div class="mat-title">My Little World list</div>
+        <div class="mat-subheading-2">Wiki - World Countries</div>
+        </div>
+        
+        <button mat-icon-button  (click)="openSearch()">
+            <mat-icon>search</mat-icon>
+        </button>   
+    </mat-toolbar-row>
+</mat-toolbar>
+  
+<mat-toolbar class="search-block mat-elevation-z4" [class.active]="toggleSearch">
+    <mat-toolbar-row style="padding: 0 5px;">
+        <button class="search-icon" mat-icon-button disabled>
+            <mat-icon>search</mat-icon>
+        </button>
+        <input class="search-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" #searchbar>
+        <button mat-button mat-icon-button (click)="searchClose()">
+            <mat-icon>close</mat-icon>
+        </button> 
+    </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+    <div class="card-data" >
         <!--
-        {{country.population}} <br/>
-        {{country.region}} <br/>
-        {{country.timezones[0]}} <br/>
-        {{country.alpha3Code}} <br/>-->
-    </div>
+            Looping through the data from the API, Useing filter metod to filter the countries
+         -->
+        <div class="card-data__item" *ngFor="let country of countryList | filterCountries: searchTerm">
+            <div class="card-data__main-data">
+                <h2 class="card-data__title">{{country.name}}</h2>
+                <p class="card-data__sub-title">{{country.capital}}, {{country.region}}</p>
+                <p class="card-data__country-data">Population: {{country.population}}</p>
+            </div>
+            <div class="card-data__sub-data">
+                <img src="{{country.flag}}" class="card-data__flag" />
+                <span class="card-data__country-data">{{country.alpha3Code}}</span>
+                <span class="card-data__country-data">{{country.timezones[0]}}</span>
+            </div>
+        </div>
+  </div>
 </div>

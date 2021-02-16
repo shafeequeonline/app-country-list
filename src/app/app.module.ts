@@ -9,23 +9,37 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { ListCountriesService } from './list-countries.service';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FilterPipe } from './country-list/filter.pipe';
+
+
+//   MatToolbarModule,
+//   MatTabsModule,
+//   MatButtonModule,
+//   MatInputModule,
+//   MatFormFieldModule,
+//   MatListModule
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        CountryListComponent
+        CountryListComponent,FilterPipe
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
         AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
         CommonModule,
         BrowserAnimationsModule,
-        MatAutocompleteModule,
-        MatFormFieldModule
+        
+        MatIconModule,
+        MatToolbarModule,
     ],
     providers: [ListCountriesService],
     bootstrap: [AppComponent]

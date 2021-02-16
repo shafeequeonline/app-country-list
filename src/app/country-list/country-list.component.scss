@@ -1,32 +1,111 @@
 $gray_color: rgba(0, 0, 0, 0.125);
+$blue_color: #3a7dce;
 
 .card-data {
-    margin: 20px 0;
+    margin: 70px 0 20px;
     &__item {
-        display: block;
-        padding: 10px;
+        display: flex;
+        position: relative;
+        padding: 10px ;
         margin-bottom: 10px;
         border: 1px solid $gray_color;
         border-radius: 5px;
         box-shadow: 1px 0px 2px $gray_color;
+        transition: all 250ms ease-in;
+    }
+
+    &__main-data {
+        flex: 1;
+    }
+
+    &__sub-data {
+        flex: 1;
+        max-width: 80px;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
     }
 
     &__flag{
-        position: absolute;
         width: 35px;
-        margin-right: 10px;
-        display: inline;
+        border:1px solid $gray_color;
+        margin-bottom: 3px;
+    }
+
+    &__country-data {
+        font-size: 14px;
+        margin: 0;
     }
 
     &__title {
         font-size: 16px;
+        line-height: 16px;
         font-weight: bold;
-        margin-left: 45px;
+        margin: 0 0 5px 0;
+        padding: 0;
     }
 
     &__sub-title {
         font-size: 16px;
-        margin-left: 10px;
-        color: #aaa;
+        color: $blue_color;
+        margin-bottom: 0;
     }
+}
+
+header{
+    position: fixed;
+    top: 0;
+     z-index: 11;
+    transition: all 250ms ease-in-out;
+  }
+  .main-header{
+    @extend header;
+    &.hidden{
+      opacity: 0;
+    }
+}
+
+.search-block{
+    width: 0%;
+    right: 0;
+    @extend header;
+    background: #fff;
+    &.active{
+      width: 100%;
+    }
+    .search-control{
+      flex: 1;
+      font-size: 1rem;
+      border: 0;
+      outline: none;
+      padding-left: 10px;
+    }
+}
+
+button{
+    border: 0;
+    background-color: transparent;
+    color: white;
+    padding: 10px 10px 0 10px;
+}
+
+.mat-toolbar-multiple-rows {
+    &.active {
+        button {
+            color: $gray_color;
+        }
+    }
+}
+
+.mat-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+}
+.mat-subheading-2 {
+    font-size: 14px;
+    line-height: 12px;
+    font-weight: 100;
 }
