@@ -34,6 +34,8 @@ export class CountryListComponent implements OnInit {
 	loadCountries() {
 		return this.listCountriesApiService.getData().subscribe((data: any) => {
 			this.countryList = data;
+			console.log(this.countryList);
+			
 		})
 	}
 
